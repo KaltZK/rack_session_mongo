@@ -1,8 +1,9 @@
 # RackSessionMongo
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/rack_session_mongo`. To experiment with that code, run `bin/console` for an interactive prompt.
+Rack session store for MongoDB.
 
-TODO: Delete this and the text above, and describe your gem
+Fixed the problem "uninitialized constant Mongo::DB" in rack-session-mongo.
+
 
 ## Installation
 
@@ -22,7 +23,14 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```
+require 'mongo'
+require 'rake_session_mongo'
+$db=Mongo::Client.new   ["localhost:27017"], :database=>'test'
+configure do
+    use Rack::Session::Mongo,:collection=>$db[:session]
+end
+```
 
 ## Development
 

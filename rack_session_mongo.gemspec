@@ -10,15 +10,8 @@ Gem::Specification.new do |spec|
   spec.email         = ["715480954@qq.com"]
 
   spec.summary       = %q{Store session for rack using MongoDB.}
-  spec.description   = %q{
-require 'mongo'
-require 'rake_session_mongo'
-$db=Mongo::Client.new   ["localhost:27017"], :database=>'test'
-configure do
-    use Rack::Session::Mongo,:collection=>$db[:session]
-end
-}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.description   = %q{Store session for rack using MongoDB. Fixed the problem that Mongo::DB not exists. }
+  spec.homepage      = "https://github.com/KaltZK/rack_session_mongo"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
